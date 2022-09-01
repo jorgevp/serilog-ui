@@ -18,7 +18,4 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Build
-      run: apt update && apt upgrade && apt install npm -y
-      run: npm install parceljs
-      run: npm install @parcel/css@1.8 --no-save
-      run: dotnet build -c Release
+      run: apt update && apt upgrade && apt install npm -y && npm install parceljs && npm install @parcel/css@1.8 --no-save && dotnet build -c Release
