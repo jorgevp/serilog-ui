@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: mcr.microsoft.com/dotnet/sdk:latest
 
     steps:
     - uses: actions/checkout@v3
@@ -18,4 +18,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Build
+      run: apt update && apt upgrade && apt install npm -y
+      run: npm install parceljs
+      run: npm install @parcel/css@1.8 --no-save
       run: dotnet build -c Release
